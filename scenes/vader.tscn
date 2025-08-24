@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://1g7tovcswqik"]
+
+[ext_resource type="PackedScene" uid="uid://bgpowy534gyup" path="res://assets/sm_vader.glb" id="1_ew5xg"]
+[ext_resource type="Script" uid="uid://cal1fwpt850k4" path="res://scripts/health.gd" id="2_w1woy"]
+[ext_resource type="Script" uid="uid://ccymnncvnx5j8" path="res://scripts/movement.gd" id="3_qq1o3"]
+[ext_resource type="Script" uid="uid://yt0q760agh7x" path="res://scripts/patrol_movement.gd" id="4_x8fas"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_850t5"]
+size = Vector3(2.675, 3.03, 2.525)
+
+[node name="Vader" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317746, 0)
+shape = SubResource("BoxShape3D_850t5")
+
+[node name="sm_vader" parent="." instance=ExtResource("1_ew5xg")]
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_w1woy")
+value = 1
+
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("to_move")]
+script = ExtResource("3_qq1o3")
+to_move = NodePath("..")
+
+[node name="PatrolMovement" type="Node" parent="."]
+script = ExtResource("4_x8fas")

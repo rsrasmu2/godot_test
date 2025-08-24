@@ -1,15 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://c72qs1vcpdood"]
+[gd_scene load_steps=6 format=3 uid="uid://c72qs1vcpdood"]
 
+[ext_resource type="Script" uid="uid://c7r2gxjtaxq6h" path="res://scripts/bullet.gd" id="1_l5glv"]
 [ext_resource type="Script" uid="uid://di6uxq7ekkk2q" path="res://scripts/collision_damage.gd" id="1_mkf8s"]
+[ext_resource type="PackedScene" uid="uid://v7hreylvd83n" path="res://assets/sm_bullet.glb" id="1_y25gk"]
+[ext_resource type="Script" uid="uid://dr8t1nt8f852w" path="res://scripts/static_velocity.gd" id="4_eoqba"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y25gk"]
+size = Vector3(0.245, 2.03, 0.22)
 
 [node name="Bullet" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_l5glv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00694, 0)
 shape = SubResource("BoxShape3D_y25gk")
+
+[node name="sm_bullet2" parent="." instance=ExtResource("1_y25gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00694, 0)
 
 [node name="CollisionDamage" type="Node" parent="."]
 script = ExtResource("1_mkf8s")
+
+[node name="StaticVelocity" type="Node" parent="." node_paths=PackedStringArray("to_move")]
+script = ExtResource("4_eoqba")
+to_move = NodePath("..")
 
 [connection signal="area_entered" from="." to="CollisionDamage" method="_on_bullet_area_entered"]
