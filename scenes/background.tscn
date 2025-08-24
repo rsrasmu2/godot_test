@@ -1,21 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk6mae2s0cagt"]
+[gd_scene load_steps=4 format=3 uid="uid://dk6mae2s0cagt"]
 
 [ext_resource type="PackedScene" uid="uid://d38p23gdwgtji" path="res://assets/sm_mountain.glb" id="2_cbsqf"]
-[ext_resource type="PackedScene" uid="uid://c7te556wqiy5l" path="res://assets/sm_skyscraper.glb" id="3_wisxt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bkp1e"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_y0upk"]
+transform_format = 1
+mesh = SubResource("BoxMesh_bkp1e")
 
 [node name="Background" type="Node3D"]
 
-[node name="sm_mountain2" parent="." instance=ExtResource("2_cbsqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.480831, 0, -42.1831)
+[node name="Mountains" type="Node3D" parent="."]
 
-[node name="sm_mountain3" parent="." instance=ExtResource("2_cbsqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94602, 1.52588e-05, -41.581)
+[node name="sm_mountain2" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1.5829, 0, 0, 0, 1.5829, 0, 0, 0, 1.5829, -0.595992, 0.0228257, -12.1627)
 
-[node name="sm_skyscraper2" parent="." instance=ExtResource("3_wisxt")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -6.40038, -1.90735e-06, -35.031)
+[node name="sm_mountain4" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1.93551, 0, 0, 0, 1.93551, 0, 0, 0, 1.93551, -2.847, 0.0228257, -14.9532)
 
-[node name="sm_skyscraper3" parent="." instance=ExtResource("3_wisxt")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.76454, 0.191122, -31.6236)
+[node name="sm_mountain5" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1.93551, 0, 0, 0, 1.93551, 0, 0, 0, 1.93551, -4.67694, 0.0228257, -11.4053)
 
-[node name="sm_skyscraper4" parent="." instance=ExtResource("3_wisxt")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.875443, 0.191122, -27.9836)
+[node name="sm_mountain6" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(3.12614, 0, 0, 0, 3.12614, 0, 0, 0, 3.12614, 1.4851, 0.0228257, -15.1586)
+
+[node name="sm_mountain7" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(2.03186, 0, 0, 0, 2.03186, 0, 0, 0, 2.03186, 6.62014, 0.0228257, -11.536)
+
+[node name="sm_mountain8" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(3.42029, 0, 0, 0, 3.42029, 0, 0, 0, 3.42029, 8.67415, 0.0228257, -14.3743)
+
+[node name="sm_mountain18" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(2.66193, 0, 0, 0, 2.66193, 0, 0, 0, 2.66193, 9.68248, 0.0228257, -10.7704)
+
+[node name="sm_mountain19" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1.39054, 0, 0, 0, 1.39054, 0, 0, 0, 1.39054, -2.15611, 0.0228257, -12.7311)
+
+[node name="sm_mountain17" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(3.42029, 0, 0, 0, 3.42029, 0, 0, 0, 3.42029, 13.8839, 0.0228257, -11.368)
+
+[node name="sm_mountain9" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1.93551, 0, 0, 0, 1.93551, 0, 0, 0, 1.93551, 6.11597, 0.0228257, -15.1212)
+
+[node name="sm_mountain10" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1.69574, 0, 0, 0, 1.69574, 0, 0, 0, 1.69574, 2.28803, 0.0228257, -11.48)
+
+[node name="sm_mountain11" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(2.84718, 0, 0, 0, 2.84718, 0, 0, 0, 2.84718, -5.98404, 0.0228257, -14.0942)
+
+[node name="sm_mountain13" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(2.32212, 0, 0, 0, 2.32212, 0, 0, 0, 2.32212, -10.3908, 0.0228257, -12.0962)
+
+[node name="sm_mountain14" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(2.84718, 0, 0, 0, 2.84718, 0, 0, 0, 2.84718, -9.34516, 0.0228257, -17.1566)
+
+[node name="sm_mountain15" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(2.22798, 0, 0, 0, 2.22798, 0, 0, 0, 2.22798, -13.2291, 0.0228257, -10.4157)
+
+[node name="sm_mountain16" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(4.72865, 0, 0, 0, 4.72865, 0, 0, 0, 4.72865, -14.3682, 0.0228257, -14.8785)
+
+[node name="sm_mountain12" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(2.52232, 0, 0, 0, 2.52232, 0, 0, 0, 2.52232, -1.40919, 0.0228257, -17.0445)
+
+[node name="sm_mountain3" parent="Mountains" instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1.93551, 0, 0, 0, 1.93551, 0, 0, 0, 1.93551, 3.59674, 0.0228553, -12.9107)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1.39053, 0, 0, 0, 1.39053, 0, 0, 0, 1.39053, -0.206018, -2.6006, 0.101359)
+size = Vector3(30.3823, 1, 10.9585)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38001, -1.30322, 0)
+multimesh = SubResource("MultiMesh_y0upk")
