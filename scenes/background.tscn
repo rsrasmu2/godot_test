@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://7f60y45gnsj2"]
+[gd_scene load_steps=3 format=3 uid="uid://dk6mae2s0cagt"]
+
+[ext_resource type="PackedScene" uid="uid://d38p23gdwgtji" path="res://assets/sm_mountain.glb" id="2_cbsqf"]
+[ext_resource type="PackedScene" uid="uid://c7te556wqiy5l" path="res://assets/sm_skyscraper.glb" id="3_wisxt"]
 
 [node name="Background" type="Node3D"]
+
+[node name="sm_mountain2" parent="." instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.480831, 0, -42.1831)
+
+[node name="sm_mountain3" parent="." instance=ExtResource("2_cbsqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94602, 1.52588e-05, -41.581)
+
+[node name="sm_skyscraper2" parent="." instance=ExtResource("3_wisxt")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -6.40038, -1.90735e-06, -35.031)
+
+[node name="sm_skyscraper3" parent="." instance=ExtResource("3_wisxt")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.76454, 0.191122, -31.6236)
+
+[node name="sm_skyscraper4" parent="." instance=ExtResource("3_wisxt")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.875443, 0.191122, -27.9836)
