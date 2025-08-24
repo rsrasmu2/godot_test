@@ -3,9 +3,10 @@ extends Node
 
 @export var left_bounds: float = -10
 @export var right_bounds: float = 10
-@export var start_direction: float = -1
 @export var mover: Node3D
 @export var movement: Movement
+
+var start_direction
 
 func _ready() -> void:
 	movement.direction = start_direction

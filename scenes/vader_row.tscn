@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7jg1tb1tjp7d"]
+
+[ext_resource type="Script" uid="uid://c5vd0a2hyjvyi" path="res://scripts/vader_row.gd" id="1_7oi41"]
+[ext_resource type="Script" uid="uid://ccymnncvnx5j8" path="res://scripts/movement.gd" id="1_jndts"]
+[ext_resource type="Script" uid="uid://be5ukbn6syljg" path="res://scripts/vertical_movement.gd" id="2_7oi41"]
+[ext_resource type="Script" uid="uid://yt0q760agh7x" path="res://scripts/patrol_movement.gd" id="3_77juw"]
+[ext_resource type="PackedScene" uid="uid://d3l7lix6m4gpc" path="res://scenes/descent_movement.tscn" id="4_ouj2c"]
+[ext_resource type="PackedScene" uid="uid://1g7tovcswqik" path="res://scenes/vader.tscn" id="5_mgtmo"]
+
+[node name="Vader Row" type="Node3D"]
+script = ExtResource("1_7oi41")
+
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("to_move")]
+script = ExtResource("1_jndts")
+to_move = NodePath("..")
+max_speed = 6.0
+acceleration = 16.0
+stop_force = 16.0
+
+[node name="VerticalMovement" type="Node" parent="." node_paths=PackedStringArray("to_move")]
+script = ExtResource("2_7oi41")
+to_move = NodePath("..")
+
+[node name="PatrolMovement" type="Node" parent="." node_paths=PackedStringArray("mover", "movement")]
+script = ExtResource("3_77juw")
+left_bounds = -4.5
+right_bounds = 4.5
+mover = NodePath("..")
+movement = NodePath("../Movement")
+
+[node name="DescentMovement" parent="." node_paths=PackedStringArray("to_move", "mover") instance=ExtResource("4_ouj2c")]
+to_move = NodePath("..")
+mover = NodePath("../VerticalMovement")
+
+[node name="Vader" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 0)
+
+[node name="Vader2" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, 0)
+
+[node name="Vader3" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3, 0, 0)
+
+[node name="Vader4" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0, 0)
+
+[node name="Vader5" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0, 0)
+
+[node name="Vader6" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, 0)
+
+[node name="Vader7" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5, 0, 0)
+
+[node name="Vader8" parent="." instance=ExtResource("5_mgtmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, 0)

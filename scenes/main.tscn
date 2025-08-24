@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0q5xdhsa3hbd"]
+[gd_scene load_steps=4 format=3 uid="uid://c0q5xdhsa3hbd"]
 
 [ext_resource type="PackedScene" uid="uid://obfovxxh7km8" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://7f60y45gnsj2" path="res://scenes/background.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://1g7tovcswqik" path="res://scenes/vader.tscn" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://ccymnncvnx5j8" path="res://scripts/movement.gd" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://yt0q760agh7x" path="res://scripts/patrol_movement.gd" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dk6mae2s0cagt" path="res://scenes/background.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b7jg1tb1tjp7d" path="res://scenes/vader_row.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node"]
 
@@ -24,168 +22,16 @@ transform = Transform3D(0.894942, 0, 0.446182, -0.18624, 0.90872, 0.373555, -0.4
 
 [node name="Background" parent="." instance=ExtResource("2_0wfyh")]
 
-[node name="Vader Row" type="Node3D" parent="."]
+[node name="Vader Row" parent="." instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
-[node name="Movement" type="Node" parent="Vader Row" node_paths=PackedStringArray("to_move")]
-script = ExtResource("3_tbgi4")
-to_move = NodePath("..")
-max_speed = 6.0
-acceleration = 16.0
-stop_force = 16.0
-
-[node name="PatrolMovement" type="Node" parent="Vader Row" node_paths=PackedStringArray("mover", "movement")]
-script = ExtResource("4_tefeu")
-left_bounds = -4.5
-right_bounds = 4.5
-mover = NodePath("..")
-movement = NodePath("../Movement")
-
-[node name="Vader" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 0)
-
-[node name="Vader2" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, 0)
-
-[node name="Vader3" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3, 0, 0)
-
-[node name="Vader4" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0, 0)
-
-[node name="Vader5" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0, 0)
-
-[node name="Vader6" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, 0)
-
-[node name="Vader7" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5, 0, 0)
-
-[node name="Vader8" parent="Vader Row" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, 0)
-
-[node name="Vader Row2" type="Node3D" parent="."]
+[node name="Vader Row2" parent="." instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+direction = 1.0
 
-[node name="Movement" type="Node" parent="Vader Row2" node_paths=PackedStringArray("to_move")]
-script = ExtResource("3_tbgi4")
-to_move = NodePath("..")
-max_speed = 6.0
-acceleration = 16.0
-stop_force = 16.0
-
-[node name="PatrolMovement" type="Node" parent="Vader Row2" node_paths=PackedStringArray("mover", "movement")]
-script = ExtResource("4_tefeu")
-left_bounds = -4.5
-right_bounds = 4.5
-start_direction = 1.0
-mover = NodePath("..")
-movement = NodePath("../Movement")
-
-[node name="Vader" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 0)
-
-[node name="Vader2" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, 0)
-
-[node name="Vader3" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3, 0, 0)
-
-[node name="Vader4" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0, 0)
-
-[node name="Vader5" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0, 0)
-
-[node name="Vader6" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, 0)
-
-[node name="Vader7" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5, 0, 0)
-
-[node name="Vader8" parent="Vader Row2" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, 0)
-
-[node name="Vader Row3" type="Node3D" parent="."]
+[node name="Vader Row3" parent="." instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Movement" type="Node" parent="Vader Row3" node_paths=PackedStringArray("to_move")]
-script = ExtResource("3_tbgi4")
-to_move = NodePath("..")
-max_speed = 6.0
-acceleration = 16.0
-stop_force = 16.0
-
-[node name="PatrolMovement" type="Node" parent="Vader Row3" node_paths=PackedStringArray("mover", "movement")]
-script = ExtResource("4_tefeu")
-left_bounds = -4.5
-right_bounds = 4.5
-mover = NodePath("..")
-movement = NodePath("../Movement")
-
-[node name="Vader" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 0)
-
-[node name="Vader2" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, 0)
-
-[node name="Vader3" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3, 0, 0)
-
-[node name="Vader4" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0, 0)
-
-[node name="Vader5" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0, 0)
-
-[node name="Vader6" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, 0)
-
-[node name="Vader7" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5, 0, 0)
-
-[node name="Vader8" parent="Vader Row3" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, 0)
-
-[node name="Vader Row4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022213, 0.0444317, 0)
-
-[node name="Movement" type="Node" parent="Vader Row4" node_paths=PackedStringArray("to_move")]
-script = ExtResource("3_tbgi4")
-to_move = NodePath("..")
-max_speed = 6.0
-acceleration = 16.0
-stop_force = 16.0
-
-[node name="PatrolMovement" type="Node" parent="Vader Row4" node_paths=PackedStringArray("mover", "movement")]
-script = ExtResource("4_tefeu")
-left_bounds = -4.5
-right_bounds = 4.5
-start_direction = 1.0
-mover = NodePath("..")
-movement = NodePath("../Movement")
-
-[node name="Vader" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 0)
-
-[node name="Vader2" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5, 0, 0)
-
-[node name="Vader3" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3, 0, 0)
-
-[node name="Vader4" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0, 0)
-
-[node name="Vader5" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0, 0)
-
-[node name="Vader6" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, 0)
-
-[node name="Vader7" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5, 0, 0)
-
-[node name="Vader8" parent="Vader Row4" instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, 0)
+[node name="Vader Row4" parent="." instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0822411, 0.0822401, 0)
+direction = 1.0
