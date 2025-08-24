@@ -13,4 +13,5 @@ func _ready() -> void:
 	$Timer.wait_time = descent_timer
 
 func _on_timer_timeout() -> void:
+	target_position -= 1
 	mover.target_vertical = target_position
