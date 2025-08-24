@@ -6,10 +6,8 @@ extends Node
 @export var mover: Node3D
 @export var movement: Movement
 
-var start_direction
-
-func _ready() -> void:
-	movement.direction = start_direction
+func set_direction(direction: float) -> void:
+	movement.direction = direction
 
 func _process(_delta: float) -> void:
 	if mover.position.x < left_bounds and movement.direction < 0:

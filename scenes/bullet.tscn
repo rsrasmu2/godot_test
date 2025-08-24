@@ -27,4 +27,4 @@ script = ExtResource("1_mkf8s")
 script = ExtResource("4_eoqba")
 to_move = NodePath("..")
 
-[connection signal="area_entered" from="." to="CollisionDamage" method="_on_bullet_area_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
