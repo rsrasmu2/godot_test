@@ -11,3 +11,6 @@ size = 15.0
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.817, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.894942, 0, 0.446182, -0.18624, 0.90872, 0.373555, -0.405455, -0.417407, 0.813252, 3.40398, 2.32426, 8.95281)

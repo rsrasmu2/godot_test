@@ -1,20 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://obfovxxh7km8"]
+[gd_scene load_steps=9 format=3 uid="uid://obfovxxh7km8"]
 
 [ext_resource type="Script" uid="uid://cal1fwpt850k4" path="res://scripts/health.gd" id="1_3vyb7"]
-[ext_resource type="PackedScene" uid="uid://bkmbynnp4bkma" path="res://assets/Player.blend" id="1_dqkch"]
+[ext_resource type="PackedScene" uid="uid://bb3ne3uwarxpj" path="res://assets/sm_player.glb" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://dhdykqipogr47" path="res://scripts/player.gd" id="1_tuyoq"]
 [ext_resource type="Script" uid="uid://ccymnncvnx5j8" path="res://scripts/movement.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://6n2cq4e60efr" path="res://scripts/player_controls.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://caghjiy0fwx1f" path="res://scripts/shoot.gd" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://c72qs1vcpdood" path="res://scenes/bullet.tscn" id="7_fjrip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 size = Vector3(1, 1.505, 1.375)
 
 [node name="Player" type="Area3D"]
+script = ExtResource("1_tuyoq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.195245, 0)
 shape = SubResource("BoxShape3D_g2els")
 
-[node name="Player" parent="." instance=ExtResource("1_dqkch")]
+[node name="sm_player" parent="." instance=ExtResource("1_dqkch")]
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("1_3vyb7")
@@ -26,3 +30,7 @@ to_move = NodePath("..")
 [node name="PlayerControls" type="Node" parent="." node_paths=PackedStringArray("movement")]
 script = ExtResource("3_qhqgy")
 movement = NodePath("../Movement")
+
+[node name="Shoot" type="Node" parent="."]
+script = ExtResource("5_qlg0r")
+bullet = ExtResource("7_fjrip")

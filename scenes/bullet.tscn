@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c72qs1vcpdood"]
+
+[ext_resource type="Script" uid="uid://di6uxq7ekkk2q" path="res://scripts/collision_damage.gd" id="1_mkf8s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y25gk"]
+
+[node name="Bullet" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_y25gk")
+
+[node name="CollisionDamage" type="Node" parent="."]
+script = ExtResource("1_mkf8s")
+
+[connection signal="area_entered" from="." to="CollisionDamage" method="_on_bullet_area_entered"]
