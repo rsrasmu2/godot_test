@@ -11,5 +11,6 @@ func _ready() -> void:
 
 
 func _on_died() -> void:
+	$AudioStreamPlayer.play_random()
 	if $Vaders.get_child_count() == 1:
 		emit_signal("died")

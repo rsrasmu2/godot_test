@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://obfovxxh7km8"]
+[gd_scene load_steps=10 format=3 uid="uid://obfovxxh7km8"]
 
 [ext_resource type="PackedScene" uid="uid://bb3ne3uwarxpj" path="res://assets/sm_player.glb" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://dhdykqipogr47" path="res://scripts/player.gd" id="1_tuyoq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://6n2cq4e60efr" path="res://scripts/player_controls.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://cal1fwpt850k4" path="res://scripts/health.gd" id="3_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://cyt2wmh8nrgap" path="res://scenes/shoot.tscn" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://c332w5h0jq2ah" path="res://assets/audio/laserSmall_001.ogg" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://ccpynx80tllfq" path="res://scripts/audio_pitcher.gd" id="8_smehm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 size = Vector3(1, 1.85, 1.375)
@@ -39,4 +41,10 @@ spawn_point = NodePath("../BulletSpawnPoint")
 [node name="BulletSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20631, 0)
 
+[node name="ShootAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fjrip")
+volume_db = -5.0
+script = ExtResource("8_smehm")
+
 [connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="fired" from="Shoot" to="ShootAudio" method="play_random"]

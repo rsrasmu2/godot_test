@@ -7,6 +7,8 @@ const bullet_scene = preload("res://scenes/bullet.tscn")
 @export var cooldown: float = 0.3
 @export var spawn_point: Node3D
 
+signal fired
+
 func _ready() -> void:
 	$Timer.wait_time = cooldown
 
@@ -26,3 +28,4 @@ func fire() -> void:
 	bullet.rotation = spawn_point.global_rotation
 	bullet.init(direction)
 	get_tree().get_nodes_in_group("Bullets")[0].add_child(bullet)
+	emit_signal("fired")

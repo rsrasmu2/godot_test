@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7jg1tb1tjp7d"]
+[gd_scene load_steps=9 format=3 uid="uid://b7jg1tb1tjp7d"]
 
 [ext_resource type="Script" uid="uid://c5vd0a2hyjvyi" path="res://scripts/vader_row.gd" id="1_7oi41"]
 [ext_resource type="Script" uid="uid://ccymnncvnx5j8" path="res://scripts/movement.gd" id="1_jndts"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://yt0q760agh7x" path="res://scripts/patrol_movement.gd" id="3_77juw"]
 [ext_resource type="PackedScene" uid="uid://d3l7lix6m4gpc" path="res://scenes/descent_movement.tscn" id="4_ouj2c"]
 [ext_resource type="PackedScene" uid="uid://1g7tovcswqik" path="res://scenes/vader.tscn" id="5_mgtmo"]
+[ext_resource type="AudioStream" uid="uid://c26y7dvn5e3t6" path="res://assets/audio/explosionCrunch_000.ogg" id="7_77juw"]
+[ext_resource type="Script" uid="uid://ccpynx80tllfq" path="res://scripts/audio_pitcher.gd" id="8_ouj2c"]
 
 [node name="Vader Row" type="Node3D"]
 script = ExtResource("1_7oi41")
@@ -58,3 +60,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5, 0, 0)
 
 [node name="Vader8" parent="Vaders" instance=ExtResource("5_mgtmo")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_77juw")
+volume_db = -10.0
+script = ExtResource("8_ouj2c")
