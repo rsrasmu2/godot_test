@@ -1,7 +1,13 @@
-[gd_scene format=3 uid="uid://c0q5xdhsa3hbd"]
+[gd_scene load_steps=2 format=3 uid="uid://c0q5xdhsa3hbd"]
+
+[ext_resource type="PackedScene" uid="uid://obfovxxh7km8" path="res://scenes/player.tscn" id="1_o5qli"]
 
 [node name="Main" type="Node"]
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.14)
+projection = 1
+size = 15.0
 
-[node name="Node3D2" type="Node3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.817, 0)

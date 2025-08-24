@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://obfovxxh7km8"]
+
+[ext_resource type="Script" uid="uid://cal1fwpt850k4" path="res://scripts/health.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://ccymnncvnx5j8" path="res://scripts/movement.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://6n2cq4e60efr" path="res://scripts/player_controls.gd" id="3_qhqgy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qhqgy"]
+
+[node name="Player" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_g2els")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qhqgy")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("1_3vyb7")
+
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("to_move")]
+script = ExtResource("2_g2els")
+to_move = NodePath("..")
+
+[node name="PlayerControls" type="Node" parent="." node_paths=PackedStringArray("movement")]
+script = ExtResource("3_qhqgy")
+movement = NodePath("../Movement")
